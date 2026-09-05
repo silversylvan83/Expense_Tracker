@@ -83,17 +83,6 @@ src/
 ├── environments/                 # API URL configuration
 └── assets/
 ```
-
-### Routes
-
-| Route        | Description                       | Protected |
-| ------------ | --------------------------------- | :-------: |
-| `/welcome`   | Landing page with login & sign up |     ❌     |
-| `/home`      | Add expense, add category, import |     ✅     |
-| `/dashboard` | Expense list, details and charts  |     ✅     |
-| `/edit/:id`  | Edit an existing expense          |     ✅     |
-| `**`         | Redirects to `/welcome`           |     —     |
-
 ---
 
 ## 📦 Installation
