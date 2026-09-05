@@ -1,0 +1,55 @@
+<div *ngIf="chartType === 'pie'">
+  <p class="categorypara">Click a slice for category details</p>
+  <div *ngIf="pieChartLabels.length===0 && chartType==='pie'">
+    <div class="et-chart-empty">
+      <p>No expenses logged yet — add one to see the breakdown.</p>
+      <button mat-raised-button color="primary" (click)="onHome()">
+        <mat-icon>add</mat-icon>Add expense
+      </button>
+      <img src="../../../assets/image/pie22.gif" height="180px" width="180px" alt="">
+    </div>
+  </div>
+  <div class="pieChart" *ngIf="pieChartLabels.length>0">
+    <canvas
+      baseChart
+      id="myCanvas"
+      [type]="'pie'"
+      [datasets]="pieChartDatasets"
+      [labels]="pieChartLabels"
+      [options]="pieChartOptions"
+      [plugins]="pieChartPlugins"
+      [legend]="pieChartLegend"
+    >
+    </canvas>
+  </div>
+</div>
+
+<div *ngIf="chartType === 'bar'">
+  <p class="categorypara">Click a <b>bar</b> for month details</p>
+  <div class="et-chart-toolbar">
+    <mat-form-field appearance="outline">
+      <mat-label>Select Year</mat-label>
+      <mat-select [(value)]="selectedYear" (selectionChange)="onSelectionChange($event)">
+        <mat-option [value]="year" *ngFor="let year of years">{{year}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div *ngIf="selectedYear==='' && chartType==='bar'">
+    <div class="et-chart-empty">
+      <p>Pick a year to see the <b>monthly</b> breakdown.</p>
+      <img src="../../../assets/image/nobar.gif" height="200px" width="280px" alt="">
+    </div>
+  </div>
+  <div class="barChart" *ngIf="selectedYear!==''">
+    <canvas
+      id="myBarCanvas"
+      baseChart
+      [data]="barChartData"
+      [options]="barChartOptions"
+      [plugins]="barChartPlugins"
+      [legend]="barChartLegend"
+      [type]="'bar'"
+    >
+    </canvas>
+  </div>
+</div>

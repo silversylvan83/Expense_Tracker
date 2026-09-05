@@ -1,0 +1,83 @@
+<div *ngIf="LoginContinue">
+  <app-welcome-loader [msg]="msg"></app-welcome-loader>
+</div>
+
+<div class="et-auth-wrap">
+  <section class="et-hero">
+    <span class="et-pill">
+      <mat-icon>bolt</mat-icon>Personal finance, simplified
+    </span>
+    <h1 class="et-hero__title">
+      Keep track of your daily <span class="et-hero__accent">expenses</span>
+    </h1>
+    <p class="et-hero__sub">
+      Log what you spend, group it by category, and let the charts and tables show
+      you exactly where your money goes.
+    </p>
+
+    <ul class="et-hero__points">
+      <li><mat-icon>donut_small</mat-icon>Category &amp; monthly breakdowns</li>
+      <li><mat-icon>upload_file</mat-icon>Bulk import from CSV</li>
+      <li><mat-icon>lock</mat-icon>Private to your account</li>
+    </ul>
+  </section>
+
+  <section class="et-auth-card">
+    <div class="et-auth-card__head">
+      <h2 class="et-auth-card__title">Welcome back</h2>
+      <p class="et-auth-card__sub">Login to your Expense Tracker account</p>
+    </div>
+
+    <form [formGroup]="loginForm" class="et-auth-card__form">
+      <mat-form-field appearance="outline">
+        <mat-label>Registered email</mat-label>
+        <mat-icon matIconPrefix>mail_outline</mat-icon>
+        <input matInput placeholder="abc@gmail.com" type="email" formControlName="gmail" />
+        <mat-error
+          *ngIf="loginForm.get('gmail')?.errors &&
+            loginForm.get('gmail')?.hasError('required') && loginForm.get('gmail')?.touched"
+        >
+          Email address is required
+        </mat-error>
+        <mat-error
+          *ngIf="loginForm.get('gmail')?.errors &&
+            loginForm.get('gmail')?.hasError('email') && loginForm.get('gmail')?.touched"
+        >
+          Email address is invalid
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <mat-icon matIconPrefix>lock_outline</mat-icon>
+        <input matInput placeholder="" type="password" formControlName="password" />
+        <mat-error
+          *ngIf="loginForm.get('password')?.errors &&
+            loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched"
+        >
+          Password is required
+        </mat-error>
+      </mat-form-field>
+
+      <button
+        *ngIf="!LoginContinue"
+        mat-raised-button
+        color="primary"
+        type="submit"
+        class="et-auth-card__submit"
+        (click)="onLogin('default')"
+      >
+        <mat-icon>login</mat-icon>Login
+      </button>
+
+      <button *ngIf="LoginContinue" class="btn btn-success et-auth-card__submit" type="button" disabled>
+        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        Loading...
+      </button>
+    </form>
+
+    <p class="et-auth-card__wait" *ngIf="LoginContinue">
+      Please wait — fetching your account details
+    </p>
+  </section>
+</div>

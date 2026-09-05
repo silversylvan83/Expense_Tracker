@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>
+  <span class="et-confirm-icon"><mat-icon>tune</mat-icon></span>
+  What would you like to do?
+</h1>
+<div mat-dialog-content>Choose an action for this expense.</div>
+<div mat-dialog-actions align="end">
+  <button mat-stroked-button mat-dialog-close (click)="onView()">
+    <mat-icon>visibility</mat-icon>View
+  </button>
+  <button mat-stroked-button mat-dialog-close (click)="onOpen()">
+    <mat-icon>edit</mat-icon>Edit
+  </button>
+  <button mat-raised-button mat-dialog-close="delete" color="warn" (click)="onDelete()">
+    <mat-icon>delete_outline</mat-icon>Delete
+  </button>
+</div>

@@ -1,0 +1,59 @@
+.categorypara {
+  font-size: .9rem;
+  color: var(--et-muted);
+  padding: 16px 20px 0;
+  margin: 0;
+}
+
+.pieChart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 320px;
+  padding: 20px;
+  margin-top: 8px;
+}
+
+.barChart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 320px;
+  padding: 0 20px 20px;
+}
+
+#myCanvas {
+  width: 300px !important;
+  height: 300px !important;
+}
+
+.et-chart-empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 12px;
+  padding: 26px 20px 30px;
+  text-align: center;
+}
+
+.et-chart-empty p {
+  margin: 0;
+  color: var(--et-muted);
+  font-size: .95rem;
+}
+
+.et-chart-empty img {
+  border-radius: var(--et-r-md);
+  opacity: .95;
+}
+
+.et-chart-toolbar {
+  display: flex;
+  justify-content: center;
+  padding: 14px 20px 0;
+}
+
+.et-chart-toolbar .mat-mdc-form-field {
+  max-width: 220px;
+}

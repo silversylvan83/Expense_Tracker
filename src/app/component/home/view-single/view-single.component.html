@@ -1,0 +1,44 @@
+<div *ngIf="isLoading">
+  <app-welcome-loader></app-welcome-loader>
+</div>
+
+<div *ngIf="!isLoading" class="et-single">
+  <h2 class="et-single__title">
+    <span class="et-single__icon"><mat-icon>receipt_long</mat-icon></span>
+    Expense details
+  </h2>
+
+  <dl class="et-single__list">
+    <div class="et-single__row">
+      <dt>Name</dt>
+      <dd>{{ tableData.name }}</dd>
+    </div>
+    <div class="et-single__row">
+      <dt>Amount</dt>
+      <dd class="et-single__amount">{{ tableData.amount }}</dd>
+    </div>
+    <div class="et-single__row">
+      <dt>Expense date</dt>
+      <dd>{{ tableData.expense_date }}</dd>
+    </div>
+    <div class="et-single__row">
+      <dt>Category</dt>
+      <dd><span class="et-tag">{{ tableData.expense_category }}</span></dd>
+    </div>
+    <div class="et-single__row">
+      <dt>Payment type</dt>
+      <dd>{{ tableData.payment }}</dd>
+    </div>
+    <div
+      class="et-single__row"
+      *ngIf="tableData.comment!=null && tableData.comment && tableData.comment!=''"
+    >
+      <dt>Comment</dt>
+      <dd>{{ tableData.comment }}</dd>
+    </div>
+  </dl>
+
+  <div mat-dialog-actions align="end">
+    <button mat-raised-button mat-dialog-close color="primary">Ok</button>
+  </div>
+</div>

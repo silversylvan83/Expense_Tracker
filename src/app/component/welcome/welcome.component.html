@@ -1,0 +1,107 @@
+<mat-drawer-container class="et-container" hasBackdrop="True" autosize>
+  <mat-drawer #drawer class="et-drawer" mode="over">
+    <div class="et-drawer__head">
+      <div
+        class="et-brand"
+        (dblclick)="onDoubleClick()"
+        (touchstart)="onTouchStart()"
+        (touchend)="onTouchEnd()"
+        (touchmove)="onTouchCancel()"
+      >
+        <span class="et-brand__mark"><mat-icon>account_balance_wallet</mat-icon></span>
+        <span class="et-brand__name">Expense Tracker</span>
+      </div>
+      <p class="et-drawer__tag">Know where every rupee goes.</p>
+    </div>
+
+    <div class="et-drawer__nav">
+      <button
+        *ngIf="isLogging"
+        mat-raised-button
+        color="primary"
+        class="et-drawer__cta"
+        (click)="onSignUp()"
+      >
+        <mat-icon>person_add</mat-icon>Create account
+      </button>
+      <button
+        *ngIf="!isLogging"
+        mat-raised-button
+        color="primary"
+        class="et-drawer__cta"
+        (click)="onLogin()"
+      >
+        <mat-icon>login</mat-icon>Login
+      </button>
+    </div>
+
+    <div class="et-drawer__foot">
+      <p class="et-drawer__label">Connect with me</p>
+      <div class="et-social">
+        <button
+          class="et-social__btn"
+          matTooltip="GitHub"
+          aria-label="Open GitHub profile"
+          (click)="onGithub()"
+        >
+          <img src="../../../assets/image/github.png" alt="GitHub" />
+        </button>
+        <button
+          class="et-social__btn"
+          matTooltip="LinkedIn"
+          aria-label="Open LinkedIn profile"
+          (click)="onLinkedin()"
+        >
+          <img src="../../../assets/image/linkedin.png" alt="LinkedIn" />
+        </button>
+      </div>
+      <p class="et-drawer__version" *ngIf="appVersion!=''" (copy)="false">
+        Version {{ appVersion }}
+      </p>
+    </div>
+  </mat-drawer>
+
+  <mat-toolbar class="et-toolbar">
+    <button
+      mat-icon-button
+      class="et-toolbar__menu"
+      (click)="drawer.toggle()"
+      aria-label="Open navigation menu"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <div class="et-brand et-toolbar__brand">
+      <span class="et-brand__mark"><mat-icon>account_balance_wallet</mat-icon></span>
+      <span class="et-brand__name">Expense Tracker</span>
+    </div>
+
+    <span class="et-toolbar__spacer"></span>
+
+    <button
+      mat-raised-button
+      color="primary"
+      matTooltip="Sign Up"
+      (click)="onSignUp()"
+      *ngIf="isLogging"
+    >
+      <mat-icon>person_add</mat-icon>Sign up
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      matTooltip="Login"
+      (click)="onLogin()"
+      *ngIf="!isLogging"
+    >
+      <mat-icon>login</mat-icon>Login
+    </button>
+  </mat-toolbar>
+
+  <div class="et-auth" *ngIf="isLogging">
+    <app-login></app-login>
+  </div>
+  <div class="et-auth" *ngIf="!isLogging">
+    <app-signup></app-signup>
+  </div>
+</mat-drawer-container>

@@ -1,0 +1,105 @@
+.et-page {
+  position: relative;
+  background:
+    radial-gradient(900px 420px at 8% -6%, rgba(79, 70, 229, .10), transparent 62%),
+    radial-gradient(760px 380px at 96% 4%, rgba(16, 185, 129, .10), transparent 60%),
+    var(--et-grad-soft);
+}
+
+/* ------------------------------ Page head ------------------------------ */
+.et-pagehead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+
+.et-pagehead__action {
+  background: var(--et-surface) !important;
+  border-color: var(--et-line) !important;
+}
+
+/* ----------------------------- User strip ------------------------------ */
+.et-userstrip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+  padding: 18px 22px;
+  margin-bottom: 26px;
+  background: var(--et-surface);
+  border: 1px solid var(--et-line);
+  border-radius: var(--et-r-lg);
+  box-shadow: var(--et-shadow-1);
+}
+
+.et-userstrip__left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+.et-userstrip__avatar {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
+  display: grid;
+  place-items: center;
+  background: var(--et-grad);
+  color: #fff;
+  box-shadow: 0 6px 14px rgba(79, 70, 229, .28);
+}
+
+.et-userstrip__avatar .mat-icon {
+  font-size: 22px;
+  width: 22px;
+  height: 22px;
+  margin: 0;
+}
+
+.et-userstrip__title {
+  margin: 0;
+  font-weight: 660;
+  letter-spacing: -.01em;
+}
+
+.et-userstrip__sub {
+  margin: 2px 0 0;
+  color: var(--et-muted);
+  font-size: .86rem;
+}
+
+/* -------------------------------- Grid --------------------------------- */
+.et-grid {
+  align-items: start;
+}
+
+.et-stack {
+  display: grid;
+  gap: 24px;
+}
+
+.et-sample {
+  margin: 0 0 14px;
+  color: var(--et-muted);
+  font-size: .88rem;
+}
+
+@media (max-width: 600px) {
+  .et-pagehead__action {
+    width: 100%;
+  }
+
+  .et-userstrip {
+    padding: 16px;
+  }
+
+  .et-userstrip button {
+    width: 100%;
+  }
+}

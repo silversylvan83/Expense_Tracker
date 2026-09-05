@@ -1,0 +1,65 @@
+<mat-card class="et-profile">
+  <div class="et-profile__head">
+    <div class="et-profile__id">
+      <span class="et-profile__avatar">
+        <img src="../../../assets/image/man.png" alt="Profile picture" />
+      </span>
+      <div class="et-profile__idtext">
+        <p class="et-profile__title">User information</p>
+        <p class="et-profile__badge"><mat-icon>verified_user</mat-icon>Verified account</p>
+      </div>
+    </div>
+    <button
+      mat-stroked-button
+      (click)="editField()"
+      [disabled]="!editable"
+      matTooltip="Edit"
+    >
+      <mat-icon>edit</mat-icon>Edit
+    </button>
+  </div>
+
+  <mat-progress-bar *ngIf="isProcess" mode="indeterminate"></mat-progress-bar>
+
+  <mat-card-content *ngIf="!isProcess">
+    <div class="et-profile__fields">
+      <div class="et-field" *ngIf="!isEdit">
+        <p class="et-field__label">Name</p>
+        <p class="et-field__value">{{ name }}</p>
+      </div>
+      <div class="et-field" *ngIf="isEdit">
+        <p class="et-field__label">Name</p>
+        <input class="et-input" type="text" [value]="name" [(ngModel)]="newName" />
+      </div>
+
+      <div class="et-field" *ngIf="!isEdit">
+        <p class="et-field__label">Username</p>
+        <p class="et-field__value">{{ user_name }}</p>
+      </div>
+      <div class="et-field" *ngIf="isEdit">
+        <p class="et-field__label">Username</p>
+        <input class="et-input" type="text" [value]="name" [(ngModel)]="newUsername" />
+      </div>
+    </div>
+
+    <div class="et-profile__stats">
+      <div class="et-ministat" *ngFor="let line of lines">
+        <p class="et-ministat__label">{{ line.content }}</p>
+        <p class="et-ministat__value">{{ line.text }}</p>
+      </div>
+    </div>
+  </mat-card-content>
+
+  <mat-card-actions class="et-profile__actions" *ngIf="!isEdit">
+    <button mat-stroked-button mat-dialog-close class="et-danger-btn" (click)="onDeleteAccount()">
+      <mat-icon>delete_outline</mat-icon>Delete account
+    </button>
+    <button mat-raised-button mat-dialog-close cdkFocusInitial color="primary">Ok</button>
+  </mat-card-actions>
+
+  <mat-card-actions align="end" *ngIf="isEdit">
+    <button mat-raised-button mat-dialog-close cdkFocusInitial color="primary" (click)="saveData()">
+      <mat-icon>save</mat-icon>Save
+    </button>
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,81 @@
+.et-container {
+  height: 100vh;
+}
+
+.et-toolbar__spacer {
+  flex: 1 1 auto;
+}
+
+.et-toolbar__menu {
+  margin-right: 6px;
+}
+
+.et-toolbar__brand .et-brand__name {
+  font-size: 1.02rem;
+}
+
+/* ------------------------------- Drawer ------------------------------- */
+.et-drawer {
+  width: 288px;
+  padding: 26px 22px;
+  display: flex;
+  flex-direction: column;
+}
+
+.et-drawer__head {
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--et-line);
+}
+
+.et-brand {
+  cursor: pointer;
+  user-select: none;
+}
+
+.et-brand__name {
+  font-size: 1.06rem;
+}
+
+.et-drawer__tag {
+  margin: 10px 0 0;
+  color: var(--et-muted);
+  font-size: .85rem;
+}
+
+.et-drawer__nav {
+  padding: 22px 0;
+  flex: 1;
+}
+
+.et-drawer__cta {
+  width: 100%;
+}
+
+.et-drawer__foot {
+  border-top: 1px solid var(--et-line);
+  padding-top: 18px;
+}
+
+.et-drawer__label {
+  font-size: .72rem;
+  font-weight: 650;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--et-faint);
+  margin-bottom: 10px;
+}
+
+.et-drawer__version {
+  margin: 16px 0 0;
+  font-size: .75rem;
+  color: var(--et-faint);
+}
+
+/* ------------------------------- Content ------------------------------ */
+.et-auth {
+  min-height: calc(100vh - 64px);
+  background:
+    radial-gradient(1100px 520px at 12% -8%, rgba(79, 70, 229, .13), transparent 60%),
+    radial-gradient(900px 460px at 92% 8%, rgba(16, 185, 129, .12), transparent 62%),
+    var(--et-grad-soft);
+}

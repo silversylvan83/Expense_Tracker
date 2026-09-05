@@ -1,0 +1,34 @@
+.loaderRelay {
+  background-color: rgba(15, 23, 42, .45);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 1200;
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader-content {
+  text-align: center;
+  background: var(--et-surface);
+  border-radius: var(--et-r-xl);
+  box-shadow: var(--et-shadow-3);
+  padding: 30px 34px 24px;
+  min-width: 200px;
+}
+
+.loader-content p {
+  margin: 16px 0 0;
+  color: var(--et-ink-2);
+  font-size: .92rem;
+  font-weight: 550;
+}
+
+.spinner-border {
+  width: 2.6rem;
+  height: 2.6rem;
+  border-width: .22em;
+  color: var(--et-primary);
+}

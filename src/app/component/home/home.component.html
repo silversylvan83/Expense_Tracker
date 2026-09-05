@@ -1,0 +1,75 @@
+<mat-drawer-container class="et-container" hasBackdrop="True" autosize>
+  <mat-drawer #drawer class="et-drawer" mode="over">
+    <div class="et-drawer__head">
+      <div class="et-brand">
+        <span class="et-brand__mark"><mat-icon>account_balance_wallet</mat-icon></span>
+        <span class="et-brand__name">Expense Tracker</span>
+      </div>
+      <p class="et-drawer__tag">Your money, at a glance.</p>
+    </div>
+
+    <nav class="et-drawer__nav">
+      <button mat-button class="et-navitem" (click)="Profile()">
+        <mat-icon>person_outline</mat-icon>Profile
+      </button>
+      <button mat-button class="et-navitem" (click)="onAdd()">
+        <mat-icon>add_chart</mat-icon>Add expenses
+      </button>
+      <button mat-button class="et-navitem et-navitem--danger" (click)="onLogout()">
+        <mat-icon>logout</mat-icon>Logout
+      </button>
+    </nav>
+
+    <div class="et-drawer__foot">
+      <p class="et-drawer__label">Connect with me</p>
+      <div class="et-social">
+        <button
+          class="et-social__btn"
+          matTooltip="GitHub"
+          aria-label="Open GitHub profile"
+          (click)="onGithub()"
+        >
+          <img src="../../../assets/image/github.png" alt="GitHub" />
+        </button>
+        <button
+          class="et-social__btn"
+          matTooltip="LinkedIn"
+          aria-label="Open LinkedIn profile"
+          (click)="onLinkedin()"
+        >
+          <img src="../../../assets/image/linkedin.png" alt="LinkedIn" />
+        </button>
+      </div>
+      <p class="et-drawer__version">Version {{ app_version }}</p>
+    </div>
+  </mat-drawer>
+
+  <mat-toolbar class="et-toolbar">
+    <button
+      mat-icon-button
+      class="et-toolbar__menu"
+      (click)="drawer.toggle()"
+      aria-label="Open navigation menu"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <div class="et-brand et-toolbar__brand">
+      <span class="et-brand__mark"><mat-icon>account_balance_wallet</mat-icon></span>
+      <span class="et-brand__name">Expense Tracker</span>
+    </div>
+
+    <span class="et-toolbar__spacer"></span>
+
+    <button mat-icon-button matTooltip="Profile" (click)="Profile()" class="et-toolbar__ghost">
+      <mat-icon>person_outline</mat-icon>
+    </button>
+    <button mat-stroked-button (click)="onLogout()" class="et-toolbar__logout">
+      <mat-icon>logout</mat-icon>Logout
+    </button>
+  </mat-toolbar>
+
+  <div class="et-main">
+    <app-view-expenses></app-view-expenses>
+  </div>
+</mat-drawer-container>

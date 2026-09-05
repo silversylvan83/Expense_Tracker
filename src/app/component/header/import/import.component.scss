@@ -1,0 +1,43 @@
+.mat-stepper-horizontal {
+  margin-top: 4px;
+}
+
+.mat-mdc-form-field {
+  margin-top: 16px;
+}
+
+.view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 0 4px;
+}
+
+table {
+  width: 100%;
+}
+
+.table-container {
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--et-line);
+  border-radius: var(--et-r-md);
+}
+
+.tables {
+  position: relative;
+  margin-top: 4px;
+}
+
+.et-step-note {
+  color: var(--et-muted);
+  font-size: .89rem;
+  margin: 12px 0 16px;
+}
+
+.et-step-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 14px;
+}

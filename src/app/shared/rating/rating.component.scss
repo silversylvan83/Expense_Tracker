@@ -1,0 +1,78 @@
+.container {
+  max-width: 620px;
+}
+
+:host ::ng-deep .mat-mdc-card {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.et-rating-q {
+  text-align: start;
+  font-weight: 600;
+  color: var(--et-ink);
+  margin-bottom: 4px;
+}
+
+.circle-radio {
+  width: 44px;
+  height: 44px;
+  line-height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--et-line);
+  text-align: center;
+  font-size: .95rem;
+  font-weight: 650;
+  cursor: pointer;
+  transition: background-color .18s var(--et-ease), border-color .18s var(--et-ease),
+    color .18s var(--et-ease), transform .18s var(--et-ease), box-shadow .18s var(--et-ease);
+  color: var(--et-muted);
+  background: var(--et-surface);
+  user-select: none;
+}
+
+.circle-radio:hover {
+  background: var(--et-primary-50);
+  border-color: var(--et-primary-400);
+  color: var(--et-primary-700);
+  transform: translateY(-2px);
+}
+
+.circle-radio.active {
+  background: var(--et-primary);
+  border-color: var(--et-primary);
+  color: #fff;
+  box-shadow: 0 6px 14px rgba(79, 70, 229, .32);
+}
+
+.et-scale {
+  color: var(--et-muted);
+  font-size: .78rem;
+}
+
+hr {
+  border-color: var(--et-line);
+  opacity: 1;
+  margin: 22px 0;
+}
+
+.skip-btn {
+  background: transparent;
+  border: none;
+  color: var(--et-muted);
+  font-size: .87rem;
+  font-weight: 550;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  padding: 6px 10px;
+  border-radius: var(--et-r-xs);
+  transition: color .18s var(--et-ease);
+}
+
+.skip-btn:hover {
+  color: var(--et-ink);
+}
+
+.gap-2 {
+  gap: .55rem;
+}

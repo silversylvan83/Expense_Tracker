@@ -1,0 +1,13 @@
+<div class="et-loader">
+  <mat-progress-spinner
+    class="et-loader__spinner"
+    color="primary"
+    [mode]="mode"
+    [value]="progressVal"
+    [diameter]="88"
+    [strokeWidth]="6"
+  >
+  </mat-progress-spinner>
+  <p class="et-loader__pct">{{ progressVal }}%</p>
+  <p class="et-loader__msg">Loading your expenses…</p>
+</div>

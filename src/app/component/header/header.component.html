@@ -1,0 +1,59 @@
+<mat-drawer-container class="et-container" hasBackdrop="True" autosize>
+  <mat-drawer #drawer class="et-drawer" mode="over">
+    <div class="et-drawer__head">
+      <div class="et-brand">
+        <span class="et-brand__mark"><mat-icon>account_balance_wallet</mat-icon></span>
+        <span class="et-brand__name">Expense Tracker</span>
+      </div>
+      <p class="et-drawer__tag">Your money, at a glance.</p>
+    </div>
+
+    <nav class="et-drawer__nav">
+      <button mat-button class="et-navitem" (click)="openDialog()">
+        <mat-icon>person_outline</mat-icon>Profile
+      </button>
+      <button mat-button class="et-navitem" (click)="onView()">
+        <mat-icon>insights</mat-icon>View expenses
+      </button>
+      <button mat-button class="et-navitem et-navitem--danger" (click)="onLogout()">
+        <mat-icon>logout</mat-icon>Logout
+      </button>
+    </nav>
+
+    <div class="et-drawer__foot">
+      <p class="et-drawer__version">Version {{ app_version }}</p>
+    </div>
+  </mat-drawer>
+
+  <mat-toolbar class="et-toolbar">
+    <button
+      mat-icon-button
+      class="et-toolbar__menu"
+      (click)="drawer.toggle()"
+      aria-label="Open navigation menu"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <div class="et-brand et-toolbar__brand">
+      <span class="et-brand__mark"><mat-icon>account_balance_wallet</mat-icon></span>
+      <span class="et-brand__name">Expense Tracker</span>
+    </div>
+
+    <span class="et-toolbar__spacer"></span>
+
+    <button mat-icon-button matTooltip="View expenses" (click)="onView()" class="et-toolbar__ghost">
+      <mat-icon>insights</mat-icon>
+    </button>
+    <button mat-stroked-button (click)="onLogout()" class="et-toolbar__logout">
+      <mat-icon>logout</mat-icon>Logout
+    </button>
+  </mat-toolbar>
+
+  <div *ngIf="isLoading">
+    <app-loader></app-loader>
+  </div>
+  <div *ngIf="!isLoading">
+    <app-dashboard></app-dashboard>
+  </div>
+</mat-drawer-container>

@@ -1,0 +1,106 @@
+<div *ngIf="type==='alert'">
+  <h1 mat-dialog-title><span class="et-dlg-icon et-dlg-icon--info"><mat-icon>exit_to_app</mat-icon></span>Leaving so soon?</h1>
+  <div mat-dialog-content>Logged out for now, but the journey continues. See you soon! 👋😄</div>
+  <div mat-dialog-actions align="end">
+    <button mat-raised-button mat-dialog-close cdkFocusInitial>Stay</button>
+    <button
+      mat-raised-button
+      color="primary"
+      mat-dialog-close
+      (click)="onLogout()"
+    >
+      Leave
+    </button>
+  </div>
+</div>
+
+<div *ngIf="type==='error'">
+  <h1 mat-dialog-title><span class="et-dlg-icon et-dlg-icon--warn"><mat-icon>error_outline</mat-icon></span>Wrong file chosen</h1>
+  <div mat-dialog-content>Use Chrome Browser Or Please Choose only CSV (.csv) Files !!</div>
+  <div mat-dialog-actions align="end">
+    <button mat-raised-button mat-dialog-close>OK</button>
+  </div>
+</div>
+
+<div *ngIf="type==='delete'">
+  <div *ngIf="!isReadyToDeleteAccount && !isProvideFeedback">
+    <h1 mat-dialog-title><span class="et-dlg-icon et-dlg-icon--danger"><mat-icon>warning_amber</mat-icon></span>Delete your account?</h1>
+    <div mat-dialog-content>This permanently removes your account and every expense on it. This action <b>cannot be undone</b>.</div>
+    <div mat-dialog-actions align="end">
+      <button mat-raised-button mat-dialog-close cdkFocusInitial>Stay</button>
+      <button
+        mat-raised-button
+        color="warn"
+        (click)="onDeleteAccount()"
+      >
+        Delete
+      </button>
+    </div>
+  </div>
+  <div *ngIf="isReadyToDeleteAccount && !isProvideFeedback">
+    <div>
+      <div mat-dialog-content>
+        <div class="confirm-access">
+          <div><p class="confirm">Confirm Access</p></div>
+        </div>
+        <div class="et-confirm-block">
+          <mat-card>
+            <mat-card-content class="signed-address">
+              <img class="signed-image" src="../../../assets/image/man.png" width="30" height="30">
+              <p>
+              Signed in as <strong>{{userEmailAddress}}</strong>
+              </p>
+            </mat-card-content>
+          </mat-card>          
+        </div>
+        <div class="et-confirm-block">
+          <mat-card>
+            <mat-card-content>
+              <div>
+                <p>Password</p>
+              </div>
+              <div>
+                <mat-form-field appearance="outline" class="example-full-width">
+                  <input matInput type="password" [(ngModel)]="passwordOfUser" name="passwordField"/>
+                </mat-form-field>
+              </div>
+              <div>
+                <button type="button" class="w-100 btn btn-success" [disabled]="passwordOfUser==null || passwordOfUser=='' " (click)="onConfirmPassword()" mat-dialog-close>Confirm</button>
+              </div>
+            </mat-card-content>
+          </mat-card>          
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="isProvideFeedback && !isReadyToDeleteAccount">
+    <div class="confirm-access et-confirm-top">
+      <div><p class="confirm">Rate your experience</p></div>
+    </div>
+    <app-rating (skipFeedback)="handleSkip($event)"></app-rating>
+  </div>
+</div>
+
+<div *ngIf="type==='admin'">
+  <h1 mat-dialog-title><span class="et-dlg-icon et-dlg-icon--warn"><mat-icon>block</mat-icon></span>Action not allowed</h1>
+  <div mat-dialog-content>Wrong Action this Account can't be deleted. As this is account created by <b>Admin..</b> Thank You..</div>
+  <div mat-dialog-content>
+    <p>Please Create your account to use the functionality..</p>
+  </div>
+  <div mat-dialog-actions  align="end">
+    <button mat-raised-button color="primary" mat-dialog-close>OK</button>
+  </div>
+</div>
+
+<div *ngIf="type==='expire'">
+  <h1 mat-dialog-title><span class="et-dlg-icon et-dlg-icon--warn"><mat-icon>schedule</mat-icon></span>Session expired</h1>
+  <div mat-dialog-content>Your current session expired!! Please login again to continue</div>
+  <div mat-dialog-actions align="end">
+    <button mat-raised-button mat-dialog-close (click)="onNavigateWelcome()">OK</button>
+  </div>
+</div>
+
+<div *ngIf="isLoading" class="loaderRelay">
+  <!-- Loader content, you can customize this part as needed -->
+  <app-welcome-loader></app-welcome-loader>
+</div>

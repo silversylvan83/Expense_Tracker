@@ -1,0 +1,73 @@
+<div class="et-page">
+  <div class="et-shell">
+    <header class="et-pagehead">
+      <div>
+        <h1 class="et-section-title">Dashboard</h1>
+        <p class="et-section-sub">Add an expense, manage categories, or import a batch from CSV.</p>
+      </div>
+      <button mat-stroked-button class="et-pagehead__action" (click)="onView()">
+        <mat-icon>insights</mat-icon>View expenses
+      </button>
+    </header>
+
+    <div class="et-userstrip">
+      <div class="et-userstrip__left">
+        <span class="et-userstrip__avatar"><mat-icon>verified_user</mat-icon></span>
+        <div>
+          <p class="et-userstrip__title">User information</p>
+          <p class="et-userstrip__sub">View your profile, activity and account settings</p>
+        </div>
+      </div>
+      <button mat-raised-button color="primary" (click)="openDialog()">
+        <mat-icon>launch</mat-icon>Open profile
+      </button>
+    </div>
+
+    <div class="row g-4 et-grid">
+      <div class="col-12 col-xl-7">
+        <app-add-expense [tags]="keywords"></app-add-expense>
+      </div>
+
+      <div class="col-12 col-xl-5">
+        <div class="et-stack">
+          <app-add-category (categoryAdded)="handleCategory($event)"></app-add-category>
+
+          <mat-card>
+            <mat-card-header>
+              <mat-card-title>
+                <mat-icon>upload_file</mat-icon>Import CSV expenses
+              </mat-card-title>
+              <mat-card-subtitle>Bring in many expenses at once</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <p class="et-sample">
+                Download the
+                <a
+                  href="https://drive.google.com/file/d/1-i_q2joBrYUqi2jYuiOmD6OeFHH9rwQL/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener"
+                  >sample file</a
+                >
+                to see the expected column format.
+              </p>
+              <app-import></app-import>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button
+    (click)="onView()"
+    class="et-fab"
+    matTooltip="View expenses"
+    mat-mini-fab
+    color="primary"
+    aria-label="View expenses"
+  >
+    <mat-icon>insights</mat-icon>
+  </button>
+</div>
+
+<app-footer></app-footer>
